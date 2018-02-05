@@ -1,0 +1,726 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  font-family: Garamond, serif;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+a, a:visited {
+    color: #ABABAB ;
+    text-decoration:none;
+}
+a:hover, a:focus, a:active {
+    color: #EDEDED;
+    text-decoration:none;
+}
+
+
+.page {
+  overflow-y: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.innerStart {
+  margin: auto;
+  height: 100%;
+  /*max-width: 700px; */
+  width:30vw;
+  font-size: 18px;
+  margin-left: 15vw;
+  margin-top:35vh;
+  font-size: 20px;
+  text-align: justify;  
+  margin-right: 35vw;
+  color:#1F1F27;
+}
+
+.address{
+  text-align: center;
+  margin-top: 100px;
+}
+
+.inner {  
+  margin-top: 0px;
+  min-height: 100vh;
+  max-width: 970px;
+  width:100vw;
+  font-size: 18px;
+  text-align: justify;
+  background-color: rgba(31,31,39,0.5);  
+  color: #EDEDED;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.shiftright {
+  margin-left: 37vw;  
+}
+
+.shiftleft {
+  margin-left: 10vw;  
+}
+
+.PartSoftware {
+  max-width: 750px;
+}
+
+.shiftedtitle {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.ResearchInterestContent{
+  margin-top: 75px;
+}
+
+.bulletList{
+  list-style: disc;
+  text-align: left;
+  margin-top: 80px;
+  margin-left: 40px;
+}
+
+ul li { padding: 5px 0px; }
+
+th, td {
+    padding-right:30px;
+}
+
+.shiftedSubtitle {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.publicationStyle{
+  text-align: justify;
+  margin-bottom: 25px;
+}
+
+.SecondaryInformation {
+  color: #ABABAB ;
+}
+
+.title {
+  padding-top: 100px;
+  padding-bottom: 10px;
+  font-size: 48px;
+  text-align: center;
+}
+
+.Subtitle {
+  text-align: left;
+  color: #ffffff;
+  font-size: 35px;
+  margin-top: -30px;
+  margin-bottom: 25px;
+  padding-top: 50px;
+}
+
+.button-wrapper {
+  margin-top: 50px;
+}
+
+
+.button {
+
+  position: relative;
+  height: 60px;
+  width: 300px;
+  /*background-color: transparent;
+  border: 3px solid #fff;
+  color: #fff;*/
+  cursor: pointer;
+  -webkit-transition: color 150ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  transition: color 150ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+}
+
+/* ------------------------------ */
+/* nav bar start page */
+
+.mybuttonStart {
+font-size: 18px;
+border: 1px solid #fff;
+border-radius: 100px;
+width: 80px;
+height: 80px;
+background-image: url(page1.png);
+background-repeat: no-repeat;
+background-size: 100%; 
+outline:0;
+}
+
+.mybuttonStart::-moz-focus-inner {
+  border: 0;
+}
+
+.mybuttonStart:hover {
+ color:#fff;
+ background-image: url(page1bis.png);
+ background-repeat: no-repeat;
+ background-size: 100%; 
+ outline:none;
+}
+
+.mybuttonStart:focus {
+ outline:none;
+}
+
+.mybuttonStart:active {
+ outline:none;
+}
+
+/* ------------------------------ */
+/* nav bar research page */
+
+.mybuttonResearch {
+font-size: 18px;
+border: 1px solid #fff;
+border-radius: 100px;
+width: 80px;
+height: 80px;
+background-image: url(page2.png);
+background-repeat: no-repeat;
+background-size: 100%; 
+outline:0;
+}
+
+.mybuttonResearch::-moz-focus-inner {
+  border: 0;
+}
+
+.mybuttonResearch:hover {
+ color:#fff;
+ background-image: url(page2bis.png);
+ background-repeat: no-repeat;
+ background-size: 100%; 
+ outline:none;
+}
+
+.mybuttonResearch:focus {
+ outline:none;
+}
+
+.mybuttonResearch:active {
+ outline:none;
+}
+
+/* ------------------------------ */
+/* nav bar publication page */
+
+.mybuttonPublication {
+font-size: 18px;
+border: 1px solid #fff;
+border-radius: 100px;
+width: 80px;
+height: 80px;
+background-image: url(page3.png);
+background-repeat: no-repeat;
+background-size: 100%; 
+outline:0;
+}
+
+.mybuttonPublication::-moz-focus-inner {
+  border: 0;
+}
+
+.mybuttonPublication:hover {
+ color:#fff;
+ background-image: url(page3bis.png);
+ background-repeat: no-repeat;
+ background-size: 100%; 
+ outline:none;
+}
+
+.mybuttonPublication:focus {
+ outline:none;
+}
+
+.mybuttonPublication:active {
+ outline:none;
+}
+
+/* ------------------------------ */
+/* nav bar software page */
+
+.mybuttonSoftware {
+font-size: 18px;
+border: 1px solid #fff;
+border-radius: 100px;
+width: 80px;
+height: 80px;
+background-image: url(page4.png);
+background-repeat: no-repeat;
+background-size: 100%; 
+outline:0;
+}
+
+.mybuttonSoftware::-moz-focus-inner {
+  border: 0;
+}
+
+.mybuttonSoftware:hover {
+ color:#fff;
+ background-image: url(page4bis.png);
+ background-repeat: no-repeat;
+ background-size: 100%; 
+ outline:none;
+}
+
+.mybuttonSoftware:focus {
+ outline:none;
+}
+
+.mybuttonSoftware:active {
+ outline:none;
+}
+
+/* ------------------------------ */
+/* nav bar CV page */
+
+.mybuttonCV {
+font-size: 18px;
+border: 1px solid #fff;
+border-radius: 100px;
+width: 80px;
+height: 80px;
+background-image: url(page5.png);
+background-repeat: no-repeat;
+background-size: 100%; 
+outline:0;
+}
+
+.mybuttonCV::-moz-focus-inner {
+  border: 0;
+}
+
+.mybuttonCV:hover {
+ color:#fff;
+ background-image: url(page5bis.png);
+ background-repeat: no-repeat;
+ background-size: 100%; 
+ outline:none;
+}
+
+.mybuttonCV:focus {
+ outline:none;
+}
+
+.mybuttonCV:active {
+ outline:none;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: #fff;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+  -webkit-transition: -webkit-transform 150ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  transition: -webkit-transform 150ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  transition: transform 150ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  transition: transform 150ms cubic-bezier(0.1, 0.7, 0.6, 0.9), -webkit-transform 150ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+}
+.button:hover.button-start {
+  color: #f1b00f;
+}
+.button:hover.button-next {
+  color: #c598af;
+}
+.button:hover::before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+.button-text {
+  position: relative;
+}
+
+.start {
+  background-image: url("image1.JPG");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: top center; 
+  background-color: #111;
+}
+
+.ResearchInterest {
+  background-image: url("image2.JPG");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: top center; 
+  background-color: #111;
+}
+
+.publications {
+  background-image: url("image3.JPG");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: top center; 
+  background-color: #111;
+}
+
+.softwares {
+  background-image: url("image4.JPG");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: top center; 
+  background-color: #111;
+}
+
+.CV {
+  background-image: url("image5.JPG");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: top center; 
+  background-color: #111;
+}
+
+.tblheader{
+  font-size: 25px;
+  padding-top: 20px;
+  padding-bottom: 10px; 
+}
+
+.completeCV{
+  margin-top: 20px;
+  text-align: right;
+}
+
+/* Transition
+ -----------------------------*/
+/* Effect 1 */
+
+.page-enter-active {
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95), -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+}
+.page-enter-active .enter-1 {
+  -webkit-transition: 300ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  transition: 300ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  transition-property: opacity, transform, -webkit-transform;
+  -webkit-transition-delay: 520ms;
+          transition-delay: 520ms;
+}
+
+.page-enter {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.page-enter .enter-1 {
+  opacity: 0;
+  -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+}
+
+.page-leave-active {
+  display: block;
+}
+
+/* Effect 2 */
+
+.page-enter-active {
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95), -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+}
+
+.page-enter-active .enter-2 {
+  -webkit-transition: 300ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  transition: 300ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  transition-property: opacity, transform, -webkit-transform;
+  -webkit-transition-delay: 640ms;
+          transition-delay: 640ms;
+}
+
+.page-enter {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+.page-enter .enter-2 {
+  opacity: 0;
+  -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+}
+
+.page-leave-active {
+  display: block;
+}
+
+/* Effect 3 */
+
+.page-enter-active {
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95), -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+}
+
+.page-enter-active .enter-3 {
+  -webkit-transition: 300ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  transition: 300ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  transition-property: opacity, transform, -webkit-transform;
+  -webkit-transition-delay: 760ms;
+          transition-delay: 760ms;
+}
+
+.page-enter {
+  opacity: 0;
+ -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+.page-enter .enter-3 {
+  opacity: 0;
+  -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+}
+
+.page-leave-active {
+  display: block;
+}
+
+/* Effect 4 */
+
+.page-enter-active {
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95), -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+}
+
+.page-enter-active .enter-4 {
+  -webkit-transition: 300ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  transition: 300ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  transition-property: opacity, transform, -webkit-transform;
+  -webkit-transition-delay: 880ms;
+          transition-delay: 880ms;
+}
+
+.page-enter {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.page-enter .enter-4 {
+  opacity: 0;
+  -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+}
+
+.page-leave-active {
+  display: block;
+}
+
+/* Effect 5 */
+
+.page-enter-active {
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95), -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+}
+
+.page-enter-active .enter-5 {
+  -webkit-transition: 300ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  transition: 300ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  transition-property: opacity, transform, -webkit-transform;
+  -webkit-transition-delay: 1000ms;
+          transition-delay: 1000ms;
+}
+
+.page-enter {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.page-enter .enter-5 {
+  opacity: 0;
+  -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+}
+
+.page-leave-active {
+  display: block;
+}
+
+/* Effect 6 */
+
+.page-enter-active {
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95), -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+}
+
+.page-enter-active .enter-6 {
+  -webkit-transition: 300ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  transition: 300ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  transition-property: opacity, transform, -webkit-transform;
+  -webkit-transition-delay: 1120ms;
+          transition-delay: 1120ms;
+}
+
+.page-enter {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.page-enter .enter-6 {
+  opacity: 0;
+  -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+}
+
+.page-leave-active {
+  display: block;
+}
+
+/* Effect 7 */
+
+.page-enter-active {
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95), -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+}
+
+.page-enter-active .enter-7 {
+  -webkit-transition: 300ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  transition: 300ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  transition-property: opacity, transform, -webkit-transform;
+  -webkit-transition-delay: 1240ms;
+          transition-delay: 1240ms;
+}
+
+.page-enter {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.page-enter .enter-7 {
+  opacity: 0;
+  -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+}
+
+.page-leave-active {
+  display: block;
+}
+
+/* Effect 8 */
+
+.page-enter-active {
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+  transition: transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95), -webkit-transform 400ms cubic-bezier(0.4, 0.1, 0.7, 0.95);
+}
+
+.page-enter-active .enter-8 {
+  -webkit-transition: 300ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  transition: 300ms cubic-bezier(0.1, 0.7, 0.6, 0.9);
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  transition-property: opacity, transform, -webkit-transform;
+  -webkit-transition-delay: 1360ms;
+          transition-delay: 1360ms;
+}
+
+.page-enter {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.page-enter .enter-8 {
+  opacity: 0;
+  -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+}
+
+.page-leave-active {
+  display: block;
+}
+
+/* *********************************************
+NAVBAR
+***********************************************/
+
+.image{
+  /*display: inline;*/
+  height: 7vh;
+  margin: 3px;
+}
+
+/*enlever les pointillés après le clique sur les hypertext*/
+a:focus
+{
+outline:0;
+}
+
+
+.nav{
+   position: fixed;
+   /*margin-top: 50vh;*/
+   margin-top: 25vh;
+   left: 1%;
+   background-color: white;
+   border-radius : 150px 150px;
+   padding: 5px;
+   background:rgba(255,255,255,0.3);
+}
+.scrollTo {
+  display: block;
+}

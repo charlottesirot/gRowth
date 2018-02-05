@@ -1,0 +1,64 @@
+#app
+  transition(name="page", :duration="1300")
+    .page(:is="page" @change-page="onChangePage")
+    
+script#start(type="text/x-template")
+  .start
+    .inner 
+      h1.title.enter-1 start page
+      .button-wrapper.enter-2
+        button.button.button-start(
+          type="button" 
+          @click="$emit('change-page', 'ResearchInterest')"
+        ) 
+          span.button-text Start!!
+          
+script#ResearchInterest(type="text/x-template")
+  .ResearchInterest
+    .inner 
+      h1.title.enter-1 Research interests
+      .button-wrapper.enter-3
+        button.button.button-middle(
+          type="button" 
+          @click="$emit('change-page', 'publications')"
+        ) 
+          span.button-text continue!          
+          
+    
+script#publications(type="text/x-template")
+  .publications
+    .inner
+      h1.title.enter-1 Publication   
+      .button-wrapper.enter-5
+        button.button.button-next(
+          type="button"
+          @click="$emit('change-page', 'softwares')"
+        )
+          span.button-text software
+          
+script#softwares(type="text/x-template")
+  .softwares
+    .inner
+      h1.title.enter-1 softwares   
+      .button-wrapper.enter-5
+        button.button.button-next(
+          type="button"
+          @click="$emit('change-page', 'CV')"
+        )
+          span.button-text CV
+          
+          
+script#CV(type="text/x-template")
+  .CV
+    .inner
+      h1.title.enter-1 CV
+      ul.next-list
+        li.enter-2 &lt;transition&gt; built-in component of Vue.js
+        li.enter-3 CSS Transition/Animation for simple animation combinations
+        li.enter-4 JavaScript hooks for complex animation      
+      .button-wrapper.enter-5
+        button.button.button-next(
+          type="button"
+          @click="$emit('change-page', 'start')"
+        )
+          span.button-text Start page

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Charlotte Sirot</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  
+<div id="app">
+  <transition name="page" :duration="1300">
+    <div class="page" :is="page" @change-page="onChangePage"></div>
+  </transition>
+</div>
+
+<script id="start" type="text/x-template">
+  <div class="start">
+
+ <div class = "nav">     
+
+        <button class="mybuttonStart" type="button" @click="$emit('change-page', 'start')"></button>    
+        <br/><br/>
+        <button class="mybuttonResearch" type="button" @click="$emit('change-page', 'ResearchInterest')"></button>  
+        <br/><br/>
+        <button class="mybuttonPublication" type="button" @click="$emit('change-page', 'publications')"></button>  
+        <br/><br/>
+        <button class="mybuttonSoftware" type="button" @click="$emit('change-page', 'softwares')"></button>  
+        <br/><br/>
+        <button class="mybuttonCV" type="button" @click="$emit('change-page', 'CV')"></button>            
+
+  </div> 
+
+    <div class="innerStart"> 
+        <h1 class="shiftedtitle enter-1">Charlotte Sirot</h1>
+        <hr size="2" color="rgb(3,1,31)" class = "enter-1">
+        <h2 class="shiftedSubtitle enter-1">Ph.D Marine Ecology</h2>
+        <br>
+        <div class = "enter-2">
+
+        My research aims mainly to investigate the effects of environmental changes on fish populations. In this context, I focus on the role of life history traits and of their temporal variations in the mechanisms underlying fish demographic response.
+
+        </div>
+
+        <div class = "address enter-3">
+          charlott.sirot@gmail.com
+          <br>
+          +45 52 60 73 20
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+
+
+<script id="ResearchInterest" type="text/x-template">
+  <div class="ResearchInterest">
+
+    <div class = "nav">     
+
+        <button class="mybuttonStart" type="button" @click="$emit('change-page', 'start')"></button>    
+        <br/><br/>
+        <button class="mybuttonResearch" type="button" @click="$emit('change-page', 'ResearchInterest')"></button>  
+        <br/><br/>
+        <button class="mybuttonPublication" type="button" @click="$emit('change-page', 'publications')"></button>  
+        <br/><br/>
+        <button class="mybuttonSoftware" type="button" @click="$emit('change-page', 'softwares')"></button>  
+        <br/><br/>
+        <button class="mybuttonCV" type="button" @click="$emit('change-page', 'CV')"></button>            
+
+    </div> 
+
+    <div class="inner shiftleft">
+      <h1 class="title enter-1">Research Interests</h1>
+
+      <div class = "ResearchInterestContent enter-2">
+
+        Key-words: biological traits, fish, environmental changes, fish decline, fish growth, fish spatial movements, nursery, diet, otolith, δ13C and δ15N, microchemistry
+
+      <ul class="bulletList enter-3">
+        <li>Development of demographic index: how to take in account changes in both spatial distribution and biomass/abundance? <a href = "publi1.pdf" class="type1">(Related publication)</a></li>
+        <li>Value of the life history traits to explain/predict change in fish demography: Are life history traits accurate indicators of population demography in a context of multifactorial environmental changes? <a href = "publi1.pdf" class="type1">(Related publication)</a></li>
+        <li> Modelling the impacts of fishing activities on marine trophic ecology (Faroes Islands) - What are the consequences of trophic changes on the demography of the considered populations? </li>
+        <li> Effects of multifactorial environmental disturbances on a declining fish population from Terminos lagoon (effect on <a href = "publi2.pdf" class="type1"> fish growth</a>, fish migration pattern/spatial distribution (in prep), <a href = "publi3.pdf" class="type1"> diet</a>)</li>
+        <li>Impact of aromatic pesticids on amphidrom species ecology: does the ketone change fish growth and migration pattern? <a href = "http://theses.vet-alfort.fr/telecharger.php?id=1630" class="type1">(Veterinary doctorate)</a>
+        <li> Utilisation of fossil otoliths for reconstruction of ancient fish diet - Is the isotopic signal temporally stable after animal death?
+        <li> Development of open-source tools to facilitate ecological investigations (e.g. creation of R packages, see <a href = "publi4.pdf" class = "type1">elementR</a>)
+      </ul>
+
+      </div>
+    </div>
+    </div>
+  </div>
+</script>
+
+
+
+
+<script id="publications" type="text/x-template">
+  <div class="publications">
+
+ <div class = "nav">     
+
+        <button class="mybuttonStart" type="button" @click="$emit('change-page', 'start')"></button>    
+        <br/><br/>
+        <button class="mybuttonResearch" type="button" @click="$emit('change-page', 'ResearchInterest')"></button>  
+        <br/><br/>
+        <button class="mybuttonPublication" type="button" @click="$emit('change-page', 'publications')"></button>  
+        <br/><br/>
+        <button class="mybuttonSoftware" type="button" @click="$emit('change-page', 'softwares')"></button>  
+        <br/><br/>
+        <button class="mybuttonCV" type="button" @click="$emit('change-page', 'CV')"></button>            
+
+  </div>
+
+    <div class="inner shiftright">
+      <h1 class="title enter-1">Publications  </h1>
+      <div class="button-wrapper enter-5">
+
+      <div class = "publicationStyle">
+      Combinations of biological attributes predict temporal dynamics of fish species in response to environmental changes
+    	<br/>
+      <div class = "SecondaryInformation">
+              Sirot C., Villéger S., Mouillot D., Darnaude A.M., Ramos-Miranda J., Flores-Hernandez D. and Panfili J. - <a href = "publi1.pdf" class="type1">Ecological Indicator 48(2015) 147-156</a>
+      </div>
+      </div>
+
+      <div class = "publicationStyle">
+      Linking temporal changes in the demographic structure and individual growth to the decline in the population of a tropical fish
+      <br/>
+      <div class = "SecondaryInformation">
+      Sirot C., Darnaude A.M., Guilhaumon F., Ramos-Miranda J., Flores-Hernandez D. and Panfili J. - <a href = "publi2.pdf" class="type1"> Estuarine Coastal and Shelf Science 165(2015) 166-175</a>
+    
+      </div>
+      </div>
+
+      <div class = "publicationStyle">
+      Ph.D. abstract: “Biological traits for understanding the demographic responses of lagoon fishes to environmental pressures”. <a href = "http://sfi-cybium.fr/node/622" class="type1">Cybium 40:3 (2016)</a>
+      </div>
+
+      <div class = "publicationStyle">
+      Using otolith organic matter to detect diet shifts in Bardiella chrysoura, during a period of environmental changes
+      <br/> 
+      <div class = "SecondaryInformation">
+      Sirot C., Grønkjear P., Brøgger Pedersen J., Zetina-Rejon M., Tripp-Valdez A., Ramos-Miranda J., Flores-Hernandez D., Panfili J. & Darnaude A.M. - <a href = "publi3.pdf" class="type1"> Marine Ecology Progress Series 575:137-152 (2017)</a>
+      </div>
+      </div>
+
+      <div class = "publicationStyle">
+      ElementR, a reactive interface for otolith microchemistry data preparation 
+      <br/> 
+      <div class = "SecondaryInformation">
+      Sirot C., Ferraton F., Childs A., Panfili J. Guilhaumon F. & Darnaude A.M. - <a href = "publi4.pdf" class="type1"> Methods in ecology and Evolution Vol 8, Issue 12 (2017)</a>  
+      </div>
+      </div>
+
+      <h1 class="title enter-1">Conferences</h1>
+
+      <div class="button-wrapper enter-5">
+
+      <div class = "publicationStyle">
+      Using otoliths to link population decline to modification in diet and growth in a tropical fish species (Bairdiella chrysoura, L., Sciaenidae) 
+      <br/> 
+      <div class ="SecondaryInformation">
+        Sirot C., Grønkjear P., Brøgger Pedersen J., Zetina-Rejon M., Tripp-Valdez A., Ramos-Miranda J., Flores-Hernandez D., Panfili J. & Darnaude A.M. 
+        <br/>
+        5th International Otolith Symposium 2014, Mallorca, Spain. – Oral communication
+      </div>      
+      </div>
+
+      <div class = "publicationStyle">
+      Past and recent growth patterns in two species with contrasting demographic responses to environmental changes in a tropical lagoon
+      <br/> 
+      <div class ="SecondaryInformation">
+        Sirot C., Darnaude A.M, Ramos-Miranda J., Flores-Hernandez D. & Panfili J. 
+        <br/> 
+         5th International Otolith Symposium 2014, Mallorca, Spain. – Oral communication
+      </div>
+      </div>
+
+      <div class = "publicationStyle">
+      Optimising LA-ICPMS rastering protocols and data reduction procedures to produce otolith micro-chemical signatures allowing robust reconstruction of fish past habitats.
+      <br/> 
+      <div class ="SecondaryInformation">
+      Ferraton F., Sirot C., Guilhaumon F., Tournois J., Childs A., & Darnaude A.M.
+      <br/> 5th International Otolith Symposium 2014, Mallorca, Spain. – Oral communication
+      </div>
+      </div>
+
+      <div class = "publicationStyle">
+      Isotopic signatures in δ13C and δ15N from otolith proteins as indicator of actual and past trophic level
+      <br/> 
+      <div class ="SecondaryInformation">
+      Sirot C., Grønkjear P., Brøgger Pedersen J., Panfili J., Darnaude A.M. 
+      <br/> 
+      Sclerochronology meeting, Rennes, France (2013) – Oral communication
+      </div>
+      </div>
+
+      <div class = "publicationStyle">
+      LA ICP-MS raster analysis: protocole optimization and data processing data automation for studying fish migrations through elemental microchemistry of otoliths
+      <br/> 
+      <div class ="SecondaryInformation">
+      Ferraton F., Sirot C., Guilhaumon F., Tournois J., Childs A., & Darnaude A.M.
+      <br/> 
+      Sclerochronology meeting, Rennes, France (2013) – Oral communication
+      </div>
+      </div>
+      <br/> 
+
+      </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+
+
+
+
+<script id="softwares" type="text/x-template">
+  <div class="softwares">
+
+ <div class = "nav">     
+
+        <button class="mybuttonStart" type="button" @click="$emit('change-page', 'start')"></button>    
+        <br/><br/>
+        <button class="mybuttonResearch" type="button" @click="$emit('change-page', 'ResearchInterest')"></button>  
+        <br/><br/>
+        <button class="mybuttonPublication" type="button" @click="$emit('change-page', 'publications')"></button>  
+        <br/><br/>
+        <button class="mybuttonSoftware" type="button" @click="$emit('change-page', 'softwares')"></button>  
+        <br/><br/>
+        <button class="mybuttonCV" type="button" @click="$emit('change-page', 'CV')"></button>            
+
+  </div>
+
+    <div class="inner shiftleft PartSoftware">
+      <h1 class="title enter-1">Softwares</h1>
+      <div class="button-wrapper enter-5">
+        <div class="Subtitle"> elementR: A Set of R6 Classes & a Shiny Application for Reducing Elemental LA-ICPMS Data from Solid Structures</div>
+        <div class="SecondaryInformation">
+          Aims to facilitate the reduction of elemental microchemistry data from solid-phase LA-ICPMS analysis (laser ablation inductive coupled plasma mass spectrometry). The elementR package provides a reactive and user friendly interface for conducting all steps needed for an optimal data reduction while leaving maximum control for user.
+        </div>
+        <br/> 
+        <div class="publicationStyle">
+          Available: <a href = "https://cran.r-project.org/web/packages/elementR/index.html" class="type1"> R cran website </a> 
+        </div>
+        <div class="publicationStyle">
+          Bug report: <a href = " https://github.com/charlottesirot/elementR" class="type1"> My gitHub </a> 
+        </div>
+        <div class="publicationStyle">
+          Associated pulication : <a href = "publi4.pdf" class="type1"> Method in Ecology and Evolution </a>
+        </div>
+
+        <br/>
+        <br/>
+        <br/>
+
+        <div class="Subtitle">gRowth: A Shiny Application for otolith growth reading</div>
+
+        <div class="SecondaryInformation">
+          Aims to facilitate the reading of otolith growth (released soon) 
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+
+
+
+<script id="CV" type="text/x-template">
+  <div class="CV">
+
+ <div class = "nav">     
+
+        <button class="mybuttonStart" type="button" @click="$emit('change-page', 'start')"></button>    
+        <br/><br/>
+        <button class="mybuttonResearch" type="button" @click="$emit('change-page', 'ResearchInterest')"></button>  
+        <br/><br/>
+        <button class="mybuttonPublication" type="button" @click="$emit('change-page', 'publications')"></button>  
+        <br/><br/>
+        <button class="mybuttonSoftware" type="button" @click="$emit('change-page', 'softwares')"></button>  
+        <br/><br/>
+        <button class="mybuttonCV" type="button" @click="$emit('change-page', 'CV')"></button>            
+
+  </div>
+
+    <div class="inner shiftright">
+      <h1 class="title enter-1">CV</h1>
+
+      <br/>
+      <br/>  
+
+      <div class="enter-2">
+      <table>
+        <th colspan="2" class="tblheader">Education</th>
+        <tr>
+          <td>2011-2014</td>
+          <td>Ph.D. in fish ecology <a href = "SIROT MS thèse corrigée.pdf" class="type1"> (see manuscript) </a>
+          <br/> 
+          <div class = "SecondaryInformation">University of Montpellier II, France</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>2005-2012</td>
+          <td>Doctor of veterinary medicine with honors
+          <br/>
+          <div class = "SecondaryInformation"> Veterinary School of Maisons-Alfort, Paris, France</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>2008-2009</td>
+          <td>Master of ecology with honors
+          <br/> « Compared biology and physiology, environment adaption »
+          <br/>
+          <div class = "SecondaryInformation"> Univ. Pierre & Marie Curie, Paris VI, France</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>2003-2005</td>
+          <td>Classes Préparatoires aux Grandes Ecoles
+          <br/>
+          <div class = "SecondaryInformation"> Lycée Janson de Sailly, Paris, France</div>
+          </td>
+        </tr>
+
+        <th colspan="2" class="tblheader">Research Experience</th>
+
+        <tr>
+          <td>2016-2018</td>
+          <td>Post-doc - Dr. Peter Gronkjear's team
+          <br/>
+          <div class = "SecondaryInformation"> Aquatic biology lab - Aarhus university, Denmark</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>2011-2014</td>
+          <td>Ph.D. student
+          <br/> 
+          <div class = "SecondaryInformation"> Laboratoire ECOSYM, UMR 5119, University of Montpellier II, France</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>2008-2009</td>
+          <td>Master internship
+          <br/>
+          <div class = "SecondaryInformation"> Laboratoire BOREA, Muséum national d’Histoire naturelle, Paris, France</div>
+          </td>
+        </tr>
+
+        <th colspan="2" class="tblheader">Awards and Scholarships</th>
+
+       <tr>
+           <td>Jan 2016</td>
+           <td>Marie Skłodowska-Curie Actions – Individual Fellowships
+           <br/>
+           <div class = "SecondaryInformation"> Financing 2 years post-doctoral research (Denmark)</div>
+           </td>
+       </tr>
+
+       <tr>
+           <td>Nov 2013</td>
+           <td>
+            <div> Veterinary thesis award: Bronze medal</div>
+           </td>
+       </tr>
+
+        <tr>
+           <td>Nov 2012</td>
+           <td>European Cooperation in Science and Technology institution – COST action
+           <br/>
+           <div class = "SecondaryInformation"> Financing the development of the collaboration between the host institution and the experienced researcher</div>
+           </td>
+        </tr>
+
+        <tr>
+           <td>July 2011</td>
+           <td>Scholarship from the French Ministry of Education and Research
+           <br/>
+           <div class = "SecondaryInformation"> Ph.D. financing</div>
+           </td>
+        </tr>
+      </table>
+      </div>
+
+
+      <div class = "completeCV enter-3">
+        <a href = "CV SIROT EN 2018.pdf" style="color: #fff">Complete CV</a>
+      </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
