@@ -1,0 +1,84 @@
+---
+title: ""
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    css: style.css
+    theme: sandstone
+---
+
+```{r out.width = '40%', echo= FALSE, fig.align="center"}
+knitr::include_graphics("LogoFinal.png")
+```
+
+**elementR** is an R package facilitating the handling and reduction of elemental microchemistry data obtained from solid-phase [LA-ICPMS](https://en.wikipedia.org/wiki/Inductively_coupled_plasma_mass_spectrometry) analysis (laser ablation inductive coupled plasma mass spectrometry). The **elementR** R-package provides:
+
+- a set of classes to handle LA-ICPMS data
+- a reactive user friendly interface running in the web browser to conduct all steps needed for an optimal data reduction while leaving maximum control to the user.
+
+**elementR** implements [R6 R classes](https://github.com/wch/R6/) and is based on [Shiny](http://shiny.rstudio.com/) for it's GUI.
+
+<br />
+
+# Novelty
+
+<br />
+
+To date, several softwares other than elementR have been developed for reducing LA-ICPMS elemental data. However, for most of them, they did not fulfill the specific needs of ecologists. In addition to fit with data reduction procedures required by the biocalcified researcher, elementR is:
+
+- An **open-source** software accessible to the **majority of the operating systems** (Linux, Windows, Mac)
+- **Flexible** as the code is available for change or improvement from other researchers
+- Coded in ***R** which is the most used langage in the ecologist community, making this software accessibel to the larger number of our researchers.
+- **Simple** to use due to its user friendly graphical interface (GUI) allows any graphics or instructions to be displayed clearly and any parameters to be configured easily (see fig 1)
+- **Reactive** meaning that the software continuously observes any change made by the user (e.g. blank or plateau limits, realignment parameters) and re-calculates and displays the updated processed data (and all intermediate data). This allows users to continually visualize the consequences of their actions on the final results and thus to  finely tune all parameters of the reduction procedure.
+- An object-oriented programming software, allowing to export easily the whole project in a single file, providing therefore both (1) a good **portability** of the final data and (2) a **traceability** of the data reduction procedure since raw, intermediate and final data and all data reduction parameters are saved in one file.
+- Provides a **realignment functionality** for transect analysis replicates.
+
+<br />
+
+```{r out.width = '90%', echo= FALSE, fig.align="center", fig.cap="Figure 1: elementR's GUI.  \\label{GUI}"}
+knitr::include_graphics("GUI.jpg")
+```
+
+<br />
+
+# Developers
+
+<br />
+
+Since 2013, the french lab MARBEC has been leading the development of elementR software. Within the project, two teams were working in close collaboration:
+
+- The team of method development: decision of the reduction process to include into elementR software (team leader: [Audrey Darnaude](http://www.umr-marbec.fr/darnaude-audrey.html?lang=fr), [Franck Ferraton](http://www.umr-marbec.fr/ferraton-franck.html?lang=fr), [Amber Child](https://www.ru.ac.za/ichthyology/people/academicstaff/dramberchilds/), and [Jacques Panfili](https://www.ru.ac.za/ichthyology/people/academicstaff/dramberchilds/))
+- The programming team: development of the software in itself ([Charlotte Sirot](https://scholar.google.com.au/citations?user=DrKoruUAAAAJ&hl=en) and [François Guilhaumon](http://francoisguilhaumon.free.fr/))
+
+In the future, elementR development team is looking for more collaborators to restructure and implement new functionnalities (for more details about the future development of elementR, see [Developments](development.html))
+
+<br />
+
+#Publications and citations `` `r emo::ji("sunglasses")` ``
+<br />
+- **Optimising LA-ICPMS rastering protocols and data reduction procedures to produce otolith micro-chemical signatures allowing robust reconstruction of fish past habitats.**<br /> 
+F. Ferraton, C. Sirot, F. Guilhaumon, J. Tournois, A. Childs, & A.M. Darnaude (2014). <br /> 
+*5th International Otolith Symposium 2014, Mallorca, Spain.*<br /> 
+<br />
+- **LA ICP-MS raster analysis: protocole optimization and data processing data automation for studying fish migrations through elemental microchemistry of otoliths.**<br /> 
+F. Ferraton, C. Sirot, F. Guilhaumon, J. Tournois, A. Childs, & A.M. Darnaude (2013).<br /> 
+*Sclerochronology meeting, Rennes, France* <br /> 
+<br />
+- ***elementR*: an R package for reducing elemental data from LA-ICPMS analysis of biological calcified structures** <br /> C. Sirot, F. Ferraton, J. Panfili, A. Childs, F. Guilhaumon & A. M. Darnaude <br />
+*Methods Ecol Evol. 2017;1–9.*<br />
+<br />
+- **Lagoon nurseries make a major contribution to adult populations of a highly prized coastal fish** <br /> 
+J. Tournois, A. M. Darnaude, F. Ferraton, C. Aliaume, L. Mercier, D. J. McKenzie <br /> 
+*Limnol. Oceanogr. 62, 2017, 1219-1233*<br />
+<br />
+- **The evolution of Otolith Science** <br /> 
+A. Geffen <br /> 
+*International Otolith Symposium (2018), Taiwan* <br /> 
+ <br />
+- **Procedure for LA-ICPMS: the use of R software and Bayesian analyses for trace element quantification**<br /> 
+Silvia Pérez-Mayol <br /> 
+*International Otolith Symposium (2018), Taiwan* <br /> 
+
+

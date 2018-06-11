@@ -1,0 +1,46 @@
+---
+title: ""
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    css: style.css
+    theme: sandstone
+---
+
+```{r out.width = '30%', echo= FALSE, fig.align="center"}
+knitr::include_graphics("LogoFinal.png")
+```
+
+ElementR currently provides a range of standard functionalities. However, due to a constant increase of users, we are receiving more and more requests for developing new features that users would like to see integrated. As the currently stable version of elementR is constantly gaining popularity in our research community, we strongly believe that the next important step is to federate researchers in an international effort to improve and extend elementR. The goal of this project is therefore to:
+
+1. Create a platform which enables researchers to voice and discuss their needs
+
+2. Provide a professional solution for programming future versions of elementR.
+
+<br />
+
+## Aim of the project
+
+<br />
+
+The project would have three main axes:
+
+1. **Axis 1: Rethink elementR's design.** As the capacity of a software to be maintained and developed highly depends on its structure, the first step of this project will be to restructure elementR's code to both ensure long term maintenance and simplify the task of adding new features. To this aim, the source code of elementR will be modularized and documented while keeping its current functions (hereafter called "core fonctionnalities"). 
+
+2. **Axis 2: Provide a new set of core functionnalities to elementR's code.** To give maximum freedom while standardizing data reduction, elementR core procedures will be enriched of a set of new functionnalities. This set of new fonctionnalities will be defined as the calculations required by a large part of the research community (e.g. possibility to have different type of standards in a single session). The diversity of potential calculations would allow to reach a larger audience within our scientifc communities and give the opportunity to researchers to choose the method best suited to their needs. The objectif of this second axis is therefore threefold: **(1) investigate the actual needs of biocalcified researcher community, (2) prioritize the development of new fonctionnalities and (3) add these new functionnalities to the core version of elementR**.
+
+3. **Axis 3: Encourage and faciliate future development of elementR.** As scientific needs are subject to constant change, the last priority of this project is to ensure future developments of the software by the researchers of our (future) community. The modularity and the documentation initiated in the first axis and the direction of the future improvements given by the second axis would allow us to program the new version of elementR in such a way that leaves the door open to further extensions of the software. 
+
+<br />
+
+## Your action in this project
+
+<br />
+
+As this project emphasizes collaborative work, the participation of as many otolith researchers as possible is of crucial importance. A big interest from our research commuity would allow the project to benefit from the experience of many and to make a stronger case to receive funding. There are two different ways to contribute to elementR by being:
+
+1. *A supporter*: if you are interested in the development of future elementR versions for using them in your own research, click on [supporter](https://goo.gl/forms/SSHjEzUydJiVpMOB3)
+2. *A contributor*: if you are interested to share a methodology that you would like to see implemented in the future versions of elementR, click on [contributor](https://goo.gl/forms/SSHjEzUydJiVpMOB3)
+
+We really look forward to hear your suggestions `` `r emo::ji("sunglasses")` `` !!
