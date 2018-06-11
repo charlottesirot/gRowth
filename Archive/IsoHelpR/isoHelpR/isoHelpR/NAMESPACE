@@ -1,3 +1,0 @@
-exportPattern("^[[:alpha:]]+")
-
-import(shiny, devtools, rmarkdown, pracma, tcltk2, knitr, DT, gdata, stringr, TeachingDemos, rpivotTable)
