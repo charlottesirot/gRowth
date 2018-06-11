@@ -1,5 +1,12 @@
 fileHandler <- R6Class("fileHandler", 
                        public = list(
+                         listImages = function(path){
+                           
+                           fileList <- list.files(path, recursive = TRUE, include.dirs = FALSE, pattern = ".jpg")
+                           
+                           return(fileList)
+                           
+                         },
                          loadImage = function(path){
                            #todo
                          },

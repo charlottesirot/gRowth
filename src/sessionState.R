@@ -1,29 +1,20 @@
 sessionState <- R6Class("sessionState",
                         public = list(
-                          
-                          ### 
-                          # Flag whether project is set
-                          ###
-                          getProjectCreatedFlag = function(){
-                            return(private$projectCreated)
+                          value = NA, 
+                          setValue = function(val){
+                            self$value <- val
                           },
-                          
                           ### 
                           # Create a new project
                           ###
                           createProject = function(path){
                             private$projectPath <- path
-                            private$projectCreated <- TRUE
+                            private$currentState <- stateEnum()$CREATED
+                            private$imageNames <- fileHandler$public_methods$listImages(private$projectPath)
                             
+                            # TODO think about it
                             private$project <- gRowthProject$new(private$projectPath)
                             
-                          },
-                          
-                          ### 
-                          # Set project created flag
-                          ###
-                          setProjectCreatedFlag = function(flag){
-                            private$projectCreated <- flag
                           },
                           
                           ### 
@@ -44,7 +35,7 @@ sessionState <- R6Class("sessionState",
                           # Get paths of all images for this project
                           ###
                           getImagePaths = function() {
-                            return(list.files(private$projectPath, recursive = TRUE, include.dirs = FALSE))
+                            return(private$imageNames)
                           },
                           
                           ### 
@@ -55,6 +46,10 @@ sessionState <- R6Class("sessionState",
                             private$scaleUploaded <- TRUE
                             private$project$loadScale(path)
                           },
+                          reInitializeScale = function(){
+                            private$scaleUploaded <- FALSE
+                            private$scalePath <- NA
+                          }, 
                           isUploadScaleBoxTicked = function(){
                             return(private$uploadScaleBox)
                           },
@@ -63,14 +58,22 @@ sessionState <- R6Class("sessionState",
                           },
                           setUploadScaleBox = function(val){
                             private$uploadScaleBox <- val
+                          }, 
+                          getCurrentState = function(){
+                            return(private$currentState)
+                          },
+                          setCurrentState = function(newState){
+                            private$currentState <- newState
                           }
                         ),
                         private = list(
                           projectPath = NA,
+                          imageNames = NA,
                           scaleUploaded = FALSE,
                           uploadScaleBox = TRUE, # Menu button whether to upload one scale for all images
                           scalePath = NA,
-                          projectCreated = FALSE,
-                          project = NA
+                          project = NA,
+                          currentState = stateEnum()$INIT
+                          
                         )
                       )

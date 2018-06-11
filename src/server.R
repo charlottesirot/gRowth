@@ -1,20 +1,22 @@
-shinyServer(function(input, output) {
+shinyServer(function(input, output, session) {
   
-  ## creating sessionState ##
-  
-  state <- sessionState$new()
+  state <- reactive({
+    sessionState$new()
+  })
   
   ##### Project View #######
   output$ProjectView = renderUI({
-      drawProjectVieW()
+    drawProjectVieW()
   })
-  
- output$drawCreateBoxStub = renderUI({
-   
-  # Hack to force a redrawing of the view after the buttons below are clicked
-  input$createSessionBtn
-  drawCreateBox(state)
- })
+
+  output$drawCreateBoxStub = renderUI({
+    updateCheckboxInput(session, "uploadScaleBox", value = input$uploadScaleBox)
+    input$FinalizeProjectCreation
+    input$createSessionBtn
+    drawCreateBox(state) 
+
+  })
+ 
  
  output$drawProjectInformationStub = renderUI({
    drawProjectInformation(state)
@@ -30,7 +32,8 @@ shinyServer(function(input, output) {
      if(input$createSessionBtn > 0){
        projectPath <- tk_choose.dir()
        # todo : check the validity of the uploaded project
-       state$createProject(projectPath)
+       state()$createProject(projectPath)
+       state()$reInitializeScale()
      }
    }
  })
@@ -41,24 +44,30 @@ shinyServer(function(input, output) {
      if(input$uploadScaleBtn > 0){
        scalePath <- tk_choose.files(default = "", caption = "Select scale", multi = FALSE, filters = matrix(c("R data", ".RData"), 1,2))
        #todo check the validity of the scale
-       state$uploadScale(scalePath)
+       state()$uploadScale(scalePath)
      }
    }
  })
- 
- # Observer for uploading scale tick box
- observe({
-   if(!is.null(input$uploadScaleBox)){
-     ## this reactiveInput for defining the uploadScaleBox
-     input$uploadScaleBox
-     state$setUploadScaleBox(input$uploadScaleBox)
-   }
- }) 
- 
+
  output$finalizeLoadingProjectStub = renderUI({
-   input$uploadScaleBox
+   
    input$uploadScaleBtn
+   
+   if(!is.null(input$uploadScaleBox)){
+     state()$setUploadScaleBox(input$uploadScaleBox)
+   }
+   
    finalizeLoadingProject(state)
+   
+ })
+ 
+  # Change the currentState into VALIDATED
+ observe({
+   if(!is.null(input$FinalizeProjectCreation)){
+     if(input$FinalizeProjectCreation > 0){
+       state()$setCurrentState(stateEnum()$VALIDATED)
+     } else {}
+   } else {}
  })
  
   ##### Scale Creation ########
@@ -68,7 +77,11 @@ shinyServer(function(input, output) {
   
   #### Otolith Processing ######
   output$OtholitProcessingView = renderUI({
-    h2("Otholit Processing")
+    drawOtolithView()
   })
+ 
+ output$Guide = renderUI({
+   
+ })
   
 })

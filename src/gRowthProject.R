@@ -4,7 +4,8 @@ gRowthProject <- R6Class("gRowthProject",
                                 #todo
                               },
                               initialize = function(projectPath){
-                                imagePaths <- list.files(projectPath, recursive = TRUE, include.dirs = FALSE)
+                                
+                                #imagePaths <- fileHandler$public_methods$listImages(projectPath)
                                 #TODO load images
                               },
                               
@@ -14,6 +15,8 @@ gRowthProject <- R6Class("gRowthProject",
                               loadScale = function(path){
                                 private$scale = load(path)
                               }
+                              
+                              
                             ),
                             private = list(
                               name = NA,
