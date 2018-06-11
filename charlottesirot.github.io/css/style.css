@@ -7,7 +7,7 @@
 
 body {
   overflow: hidden;
-  font-family: Garamond, serif;
+  font-family: 'Varela Round', sans-serif;
 }
 
 button {
@@ -38,11 +38,10 @@ a:hover, a:focus, a:active {
 
 .innerStart {
   margin: auto;
-  height: 100%;
   /*max-width: 700px; */
   width:30vw;
   font-size: 18px;
-  margin-left: 15vw;
+  margin-left: 22vw;
   margin-top:35vh;
   font-size: 20px;
   text-align: justify;  
@@ -58,7 +57,7 @@ a:hover, a:focus, a:active {
 .inner {  
   margin-top: 0px;
   min-height: 100vh;
-  max-width: 970px;
+  max-width: 950px;
   width:100vw;
   font-size: 18px;
   text-align: justify;
@@ -69,7 +68,7 @@ a:hover, a:focus, a:active {
 }
 
 .shiftright {
-  margin-left: 37vw;  
+  margin-left: 42vw;  
 }
 
 .shiftleft {
@@ -361,6 +360,7 @@ outline:0;
 
 .start {
   background-image: url("image1.JPG");
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-position: top center; 
@@ -369,6 +369,7 @@ outline:0;
 
 .ResearchInterest {
   background-image: url("image2.JPG");
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-position: top center; 
@@ -377,6 +378,7 @@ outline:0;
 
 .publications {
   background-image: url("image3.JPG");
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-position: top center; 
@@ -385,6 +387,7 @@ outline:0;
 
 .softwares {
   background-image: url("image4.JPG");
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-position: top center; 
@@ -393,6 +396,7 @@ outline:0;
 
 .CV {
   background-image: url("image5.JPG");
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-position: top center; 

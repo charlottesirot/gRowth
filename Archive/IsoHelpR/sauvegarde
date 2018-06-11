@@ -1,0 +1,65 @@
+
+  # TCD.liste <- split(TCD(), TCD()$Identifier.1)
+  # 
+  # TCD.liste <- TCD.liste[which(names(TCD.liste) != "")]
+  # 
+  # sample <- input$sample
+  # 
+  # resultMatrix <- matrix(NA,ncol = 9) #the matrix summurizing the number of values in the rArea
+  # 
+  # error.id2 <- NULL # test that all the Identifier.2 are identicals
+  # error.id2.sample <- NULL # test that all the sample have a not empty Identifier.2
+  # 
+  # for(i in 1: length(TCD.liste)) {
+  # 
+  #   dataProv <- TCD.liste[[i]]
+  # 
+  #   One.Analysis <- separateAnalysis_TCD(dataProv, dataProv$rArea.Flash.TCD)
+  # 
+  #   number.Analysis <- length(One.Analysis)
+  # 
+  #   for(j in 1:number.Analysis) {
+  # 
+  #     if(length(unique(One.Analysis[[j]]$Identifier.2)) == 1) {
+  #       error.id2 <- 0
+  #     } else {
+  #       error.id2 <- 1
+  #     } ### 0 = all the Identifier.2 are identicals, 1 = at least one line has a different Identifier.2
+  #     
+  #     cond <- sapply(1:length(sample), function(x) {length(which(names(TCD.liste)[i] == sample[x]))})
+  # 
+  #     cond1 <- length(which(cond != 0)) # marker that it's a sample
+  # 
+  #     cond2 <- length(which(is.null.vector(One.Analysis[[j]]$Identifier.2) | is.na(One.Analysis[[j]]$Identifier.2) | One.Analysis[[j]]$Identifier.2 == "NA" | One.Analysis[[j]]$Identifier.2 == ""))
+  # 
+  #     if(cond1 != 0 & cond2 != 0) {
+  #       error.id2.sample <- 1
+  #     } else {
+  #       error.id2.sample <- 0
+  #     } ### 0 = no sample id2 is empty, 1 = at least one line of the sample id2 is empty
+  # 
+  #     nbValue <- which(!is.na(One.Analysis[[j]]$rArea.Flash.TCD) & !is.null(One.Analysis[[j]]$rArea.Flash.TCD) & One.Analysis[[j]]$rArea.Flash.TCD != "")
+  # 
+  #     nb.NA <- which(is.na(One.Analysis[[j]]$rArea.Flash.TCD) | is.null(One.Analysis[[j]]$rArea.Flash.TCD) | One.Analysis[[j]]$rArea.Flash.TCD == "")
+  # 
+  #     toAdd <- c(names(TCD.liste)[i], as.character(One.Analysis[[j]]$Identifier.2)[1], One.Analysis[[j]]$Rank.Analysis[1], length(nbValue), length(nb.NA), error.id2, error.id2.sample, One.Analysis[[j]]$rArea.Flash.TCD[1:2])
+  # 
+  #     resultMatrix <- rbind(resultMatrix, toAdd)
+  # 
+  #   }
+  # 
+  # }
+  # 
+  # resultMatrix <- resultMatrix[-1,]
+  # 
+  # colnames(resultMatrix) <- c("Identifier.1", "Identifier.2","FirstLine", "NbValues", "Nb.NA", "error_id.2","error.id2.sample","rArea.Flash.TCD.N", "rArea.Flash.TCD.C")
+  # rownames(resultMatrix) <- 1:nrow(resultMatrix)
+  # resultMatrix <- as.data.frame(resultMatrix)
+  # 
+  # for(i in 3:ncol(resultMatrix)) {
+  #   resultMatrix[,i] <- as.numeric(as.character(resultMatrix[,i]))
+  # }
+  # 
+  # resultMatrix <- resultMatrix[order(resultMatrix[,3]),]
+  # 
+  # return(resultMatrix)

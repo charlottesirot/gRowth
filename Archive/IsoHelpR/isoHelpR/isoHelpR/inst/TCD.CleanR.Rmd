@@ -1,0 +1,491 @@
+---
+title: "TCD.CleanR"
+author: "Charlotte S."
+date: "8 février 2018"
+output: 
+  html_document:
+    code_folding: hide
+runtime: shiny
+---
+<br>
+
+```{r  echo=FALSE, include = FALSE, cache= FALSE}
+complementVector <- function(VectR, x) {
+  
+  length.VectR <- length(VectR)
+  length.x <- length(x)
+  
+  y <- vector() #output
+  
+  for(i in 1:length.VectR) {
+    
+    if(is.na(match(VectR[i], x))) {
+      y <- c(y, i)
+    } else {}
+    
+  }
+  
+  return(VectR[y])
+  
+}
+
+successiveValues <- function(vect) {
+  
+  length.vect <- length(vect)
+  
+  i <- 1
+  k <- 1
+  
+  finalList <- list()
+  
+  while(i < length.vect) {
+    
+    finalList[k][[1]] <- vect[i]
+    
+    while(vect[i + 1] == vect[i] +1 & i < length.vect) {
+      
+      finalList[k][[1]] <- c(finalList[k][[1]], vect[i+1])
+      
+      i <- i+1
+      
+    }
+    
+    i <- i+1
+    k <- k+1
+    
+  }
+  
+  return(finalList)
+  
+}
+
+is.null.vector <- function(x) {
+  sapply(x, is.null)
+}
+```
+
+### To read beforhand
+
+**Aim of this document:** This sheet has been created to help users to format the TCD file in order to upload it for further calculations. <br>
+**WARNING:** This file and its calculations do not correct automatically the TCD file (task dedicated to the user) but rather to point out the error of the raw TCD file. Before uploading the file in the next calculation (put the name of the function), please check with this document that there is **NO** error in all the following **CONCLUSIONS** (this task may require several run of utilisation of the function TCD_cleanR).
+
+### 1. Import TCD data to clean
+
+```{r} 
+# tkmessageBox(message = "Choose a quant file", type = "ok")
+# TCDpath <- tclvalue(tkgetOpenFile())
+# if (!nchar(TCDpath)) {
+#  tkmessageBox(message = "No file was selected!")
+# } else {
+#  tkmessageBox(message = paste("The file selected was", TCDpath))
+# }
+TCDpath <- "/home/cha/Dropbox/Post-doc_Danemark/Results/Script/TCD.xls"
+TCD <- read.xls (TCDpath, sheet = 1, header = TRUE)
+
+Rank.Analysis <- 2: (nrow(TCD)+ 1) # +1 to make the excel file correspond to the R file
+
+TCD <- cbind(Rank.Analysis, TCD)
+
+nrow.TCD <- nrow(TCD)
+ncol.TCD <- ncol(TCD)
+
+level.identifier.1 <- levels(TCD$Identifier.1)
+```
+The TCD file chosen is `r TCDpath`
+<br><br>
+
+### 2. Conditions for tested by isoHelpR
+* General conditions:
+    + Any identifier 1 should not be empty or null
+    + Peak.Nr..Flash.TCD column accept only the following values:1, 2, NA or empty cell
+* For standards:
+    + rArea Flash TCD with exactly three lines containing exactly two values and an empty cell (NA accepted). The analysis of the sucrose is an exception (exactly two lines containing exactly one values and an empty cell (NA accepted))
+* For samples:
+    + Any identifier 2 should not be empty or null
+    + rArea Flash TCD with exactly three lines containing exactly two values and an empty cell (NA accepted).
+<br><br>
+
+### 3. Select only the name(s) that correspond to samples
+
+```{r  echo=FALSE}
+checkboxGroupInput("sample", label = p(""), 
+    choices = level.identifier.1,
+    selected = level.identifier.1[1])
+
+dataTables <- reactive({
+  sample <- input$sample
+  
+  place <- NULL
+  
+  for(x in 1:length(sample)) {
+  
+  if(x == 1) {
+    TCD.sample <- TCD[which(TCD$Identifier.1 == sample[x]), ]
+    place <- which(TCD$Identifier.1 == sample[x])
+  } else {
+    TCD.sample <- rbind(TCD.sample, TCD[which(TCD$Identifier.1 == sample[x]), ])
+    place <- c(place, which(TCD$Identifier.1 == sample[x]))
+  }
+}
+
+place <- sort(place)
+PlaceBar <- complementVector(1:nrow.TCD, place)
+
+TCD.sample <- TCD.sample[order(TCD.sample$Rank.Analysis),] # data with only the sample
+TCD.standard <- TCD [PlaceBar, ] # data with only the standards
+
+return(list(TCD.sample, TCD.standard))
+  
+})
+
+output$dataSampleToPrint <- renderDT({
+  dataTables()[[1]]
+})
+output$dataStandardToPrint <- renderDT({
+  dataTables()[[2]]
+})
+```
+
+<br><br>
+
+#### Data Samples:
+`r DTOutput("dataSampleToPrint")`
+<br><br>
+
+#### Data Standards:
+`r DTOutput("dataStandardToPrint")`
+<br>
+
+These tables are already exported if needed ("dataSampleToPrint.csv" and "dataStandardToPrint.csv")
+
+<br><br>
+
+### 5. General conditions
+```{r}
+Lineerror_identifier.1 <- which(is.null.vector(TCD$Identifier.1) | is.na(TCD$Identifier.1) | TCD$Identifier.1 == "NA" | TCD$Identifier.1 == "")
+```
+<br>
+**CONCLUSION:**<br><br>
+There is  **`r if(length(Lineerror_identifier.1) == 0){"no"} else {length(Lineerror_identifier.1)}`** error in the identifier.1 column at the line(s): `r if(length(Lineerror_identifier.1) == 0){NA} else {Lineerror_identifier.1}`
+<br><br>
+
+```{r}
+LinePeak.Nr <- which(TCD$Peak.Nr..Flash.TCD != 1 & TCD$Peak.Nr..Flash.TCD != 2 & !is.na(TCD$Peak.Nr..Flash.TCD) & TCD$Peak.Nr..Flash.TCD != "")
+```
+<br>
+**CONCLUSION:**<br><br>
+There is  **`r if(length(LinePeak.Nr) == 0){"no"} else {length(LinePeak.Nr)}`** error in the Peak.Nr..Flash.TCD column at the line(s): `r if(length(LinePeak.Nr) == 0){NA} else {LinePeak.Nr}`
+<br><br>
+
+### 6. Standard format checking
+
+```{r}
+
+dataStandard <- reactive({
+   dataTables()[[2]]
+})
+
+error.standard <- reactive({
+  
+  TCD.standard <- dataStandard()
+  
+  listStandard <- split(TCD.standard, TCD.standard$Identifier.1)
+  
+  # delete if some level with 0 lines
+  place.To.delete <- NULL
+  
+  for(x in 1:length(listStandard)) {
+    if(nrow(listStandard[[x]]) == 0) {
+      place.To.delete <- c(place.To.delete, x)
+    }
+  }
+  
+  listStandard <- listStandard[-place.To.delete]
+
+  ## end of deletion
+
+  length.listStandard <- length(listStandard)
+
+  error.list.Standard <- NULL # i.e. if the ConsideredSample is not a multiple of 3
+  error.Value.Standard <- NULL # where is the value missing
+
+  for(x in 1:length.listStandard){
+  
+    ConsideredStandard <- listStandard[[x]]
+  
+    list.analysis <- successiveValues(ConsideredStandard$Rank.Analysis)
+  
+    n.Analysis <- length(list.analysis)
+  
+    for(i in 1:n.Analysis){
+    
+      dataTemp <- ConsideredStandard[match(list.analysis[[i]], ConsideredStandard$Rank.Analysis),]
+    
+      if(names(listStandard)[[x]] == "Sucrose" | names(listStandard)[[x]] == "sucrose") {
+        if(nrow(dataTemp)%%2 != 0) {
+          error.list.Standard <- c(error.list.Standard, names(listStandard)[x])
+        } else {
+        
+          nb.analyse.stand <- nrow(dataTemp)/2
+        
+          for(j in 0:(nb.analyse.stand-1)) {
+          
+            dataTemp.1Analyse <- dataTemp[(j*2+1):(2*j+2),]
+          
+            if(is.na(dataTemp.1Analyse$rArea.Flash.TCD[1])){
+              error.Value.Standard <- c(error.Value.Standard, dataTemp.1Analyse$Rank.Analysis[1])
+            }
+            if(!is.na(dataTemp.1Analyse$rArea.Flash.TCD[2])){
+              error.Value.Standard <- c(error.Value.Standard, dataTemp.1Analyse$Rank.Analysis[2])
+            }
+          }
+        }
+     } else {
+        if(nrow(dataTemp)%%3 != 0) {
+          error.list.Standard <- c(error.list.Standard, names(listStandard)[x])
+        } else {
+        
+        nb.analyse.stand <- nrow(dataTemp)/3
+        
+        for(j in 0:(nb.analyse.stand-1)) {
+          
+          dataTemp.1Analyse <- dataTemp[(j*3+1):(3*j+3),]
+          
+          if(is.na(dataTemp.1Analyse$rArea.Flash.TCD[1])){
+            error.Value.Standard <- c(error.Value.Standard, dataTemp.1Analyse$Rank.Analysis[1])
+          }
+          if(is.na(dataTemp.1Analyse$rArea.Flash.TCD[2])){
+            error.Value.Standard <- c(error.Value.Standard, dataTemp.1Analyse$Rank.Analysis[2])
+          }
+          if(!is.na(dataTemp.1Analyse$rArea.Flash.TCD[3])){
+            error.Value.Standard <- c(error.Value.Standard, dataTemp.1Analyse$Rank.Analysis[3])
+          }
+        }
+      }
+    }
+  }
+}
+
+error.list.Standard <- unique(error.list.Standard)
+
+return(list(error.list.Standard, error.Value.Standard))
+})
+
+output$length.standardError <- renderText({ 
+  
+          paste("There is(are)", length(error.standard()[[1]]), "error(s) of the number of lines")
+     })
+
+output$standardError <- renderText({ 
+        if(length(error.standard()[[1]]) >0) {
+          return(paste("Find the error in", paste(error.standard()[[1]], sep = " ", collapse = " ")))
+        } else {
+          return("")
+        }
+     })
+
+output$length.standardError.2 <- renderText({ 
+          paste("There is(are)", length(error.standard()[[2]]), "error(s) of the values")
+     })
+
+output$standardError.2 <- renderText({ 
+        if(length(error.standard()[2]) >0) {
+          return(paste("Find the error in", paste(error.standard()[[2]], sep = " ", collapse = " ")))
+        } else {
+          return("")
+        }
+     })
+
+```
+<br><br>
+**CONCLUSIONS: **<br><br>
+1. Number of line (2 lines for sucrose and 3 for the rest):
+`r textOutput('length.standardError')`
+`r textOutput('standardError')`
+<br>
+2. Missing values (1 values and 1 empty cell for sucrose, 2 values and 1 empty cell for the rest of the standards)
+`r textOutput('length.standardError.2')`
+`r textOutput('standardError.2')`
+<br><br>
+
+### 7. Sample format checking
+<br>
+
+#### a. Check that the identifier.2 is not empty
+
+```{r}
+
+dataSample <- reactive({
+   dataTables()[[1]]
+})
+
+Lineerror_identifier.2.Sample <- reactive({
+  Line.Toprint <-  which(is.null.vector(dataSample()$Identifier.2) | is.na(dataSample()$Identifier.2) | dataSample()$Identifier.2 == "NA" | dataSample()$Identifier.2 == "")
+  
+  return(dataSample()$Rank.Analysis[Line.Toprint])
+})
+
+output$text.Lineerror_identifier.2.Sample <- renderText({ 
+  
+  if(length(Lineerror_identifier.2.Sample()) == 0){
+    rendR <- "no"
+    } else {
+      rendR <-length(Lineerror_identifier.2.Sample())
+    }
+  
+  
+  if(length(Lineerror_identifier.2.Sample()) == 0){rendR2 <- NA} else {rendR2 <- Lineerror_identifier.2.Sample()}
+  
+  return(paste("There is(are)", rendR, "error(s) in the identifier.2 column at the line(s):", paste(rendR2, sep = " ", collapse = " ")))
+     })
+
+```
+<br>
+
+**CONCLUSION:**
+`r textOutput('text.Lineerror_identifier.2.Sample')`
+<br><br>
+
+#### b. Check the number of line available and the values of the data (2 values and 1 empty cell for each analysis)
+
+```{r}
+
+dataSample <- reactive({
+   dataTables()[[1]]
+})
+
+error.samples <- reactive({
+  
+  TCD.sample <- dataSample()
+  
+  listSample <- split(TCD.sample, TCD.sample$Identifier.2)
+
+  # delete if some level with 0 lines
+  place.To.delete <- NULL
+
+  for(x in 1:length(listSample)) {
+    if(nrow(listSample[[x]]) == 0) {
+      place.To.delete <- c(place.To.delete, x)
+    }
+  }
+
+  listSample <- listSample[-place.To.delete]
+
+  ## end of deletion
+
+  length.listSample <- length(listSample)
+
+  error.list.sample <- NULL # i.e. if the ConsideredSample is not a multiple of 3
+  error.Value.sample <- NULL # where is the value missing
+
+  for(x in 1:length.listSample){
+  
+    ConsideredSample <- listSample[[x]]
+  
+    list.analysis <- successiveValues(ConsideredSample$Rank.Analysis)
+  
+    n.Analysis <- length(list.analysis)
+  
+    for(i in 1:n.Analysis){
+    
+      dataTemp <- ConsideredSample[match(list.analysis[[i]], ConsideredSample$Rank.Analysis),]
+    
+        if(nrow(dataTemp) != 3) {
+          error.list.sample <- c(error.list.sample, names(listSample)[x])
+        } else {
+          if(is.na(dataTemp$rArea.Flash.TCD[1])){
+            error.Value.sample <- c(error.Value.sample, dataTemp$Rank.Analysis[1])
+          }
+          if(is.na(dataTemp$rArea.Flash.TCD[2])){
+            error.Value.sample <- c(error.Value.sample, dataTemp$Rank.Analysis[2])
+          }
+          if(!is.na(dataTemp$rArea.Flash.TCD[3])){
+            error.Value.sample <- c(error.Value.sample, dataTemp$Rank.Analysis[3])
+          }
+        }
+    }
+  }
+
+  error.list.sample <- unique(error.list.sample)
+  
+  return(list(error.list.sample, error.Value.sample))
+})
+
+output$length.sampleError <- renderText({ 
+  
+          paste("There is(are)", length(error.samples()[[1]]), "error(s) of the number of lines")
+     })
+
+output$sampleError <- renderText({ 
+        if(length(error.samples()[[1]]) >0) {
+          return(paste("Find the error in", paste(error.samples()[[1]], sep = " ", collapse = " ")))
+        } else {
+          return("")
+        }
+     })
+
+output$length.sampleError.2 <- renderText({ 
+          paste("There is(are)", length(error.samples()[[2]]), "error(s) of the values")
+     })
+
+output$sampleError.2 <- renderText({ 
+        if(length(error.samples()[2]) >0) {
+          return(paste("Find the error in", paste(error.samples()[[2]], sep = " ", collapse = " ")))
+        } else {
+          return("")
+        }
+     })
+
+```
+<br><br>
+**CONCLUSIONS: **<br><br>
+1. Number of line (2 lines for sucrose and 3 for the rest):
+`r textOutput('length.sampleError')`
+`r textOutput('sampleError')`
+<br>
+2. Missing values (1 values and 1 empty cell for sucrose, 2 values and 1 empty cell for the rest of the standards)
+`r textOutput('length.sampleError.2')`
+`r textOutput('sampleError.2')`
+<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
