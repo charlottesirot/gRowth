@@ -28,7 +28,7 @@ invisible(lapply(pkgs, function(pkgs){
 #Install elementR
 devtools::install_github("charlottesirot/gRowth", ref = "V1.0", force = T, dependencies = T)
 
-library(gRowth)
+library(GRowth)
 ```
 
 
