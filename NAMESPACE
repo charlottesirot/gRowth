@@ -1,0 +1,2 @@
+exportPattern("^[[:alpha:]]+")
+import(shiny, shinydashboard, stringr, devtools, tcltk, imager, R6, tiff, rtiff, jpeg)
