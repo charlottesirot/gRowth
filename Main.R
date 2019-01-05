@@ -16,5 +16,5 @@ source(paste(projectPath, "drawOtolithView.R", sep = ""))
 
 setwd("/home/cha/GitHub/gRowth")
 
-
+#run the app
 runApp("src", launch.browser = TRUE)
