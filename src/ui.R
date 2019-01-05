@@ -6,4 +6,4 @@ navbarPage("gRowth", id = "nav",
            tabPanel("Scale Creation",
                     uiOutput("ScaleCreationView"))
 )
-
+##
